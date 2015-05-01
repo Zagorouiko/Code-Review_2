@@ -17,9 +17,23 @@ require('word')
     end
 
     describe('#word_definition') do
-      it('Initially returns an empty of s definition for the word') do
+      it('Initially return an empty array of a definition for the word') do
         test_words = Word.new('domesticated feline mammal')
         expect(test_words.word_definition()).to(eq([]))
+      end
+    end
+
+    describe('#save') do
+      it('adds a word to the array of saved words') do
+        test_words = Word.new('cat')
+        test_words.save()
+        expect(Word.all()).to(eq([test_words]))
+      end
+    end
+
+    describe('.all') do
+      it('is empty at first') do
+        expect(Word.all()).to(eq([]))
       end
     end
   end

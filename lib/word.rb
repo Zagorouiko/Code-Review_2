@@ -18,4 +18,12 @@ class Word
   define_method(:word_definition) do
     @word_definition
   end
+
+  define_singleton_method(:all) do
+    @@word_list
+  end
+
+  define_method(:save) do
+    @@word_list.push(self)
+  end
 end
