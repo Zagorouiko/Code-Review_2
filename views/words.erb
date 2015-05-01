@@ -1,4 +1,4 @@
-<h1>Youre Dictionary</h1>
+<h1>Your Dictionary</h1>
 <h5>Click the word to see the definition or add a new one:</h5>
 <ul>
   <% @word_list.each() do |word| %>
@@ -8,4 +8,8 @@
 
 <form action='/'>
   <button type="submit" class="btn btn-success">Home</button>
+</form>
+
+<form action='/words/new'>
+  <button type="submit" class="btn btn-danger">Add a new Word</button>
 </form>

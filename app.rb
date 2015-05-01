@@ -31,12 +31,12 @@ get('/definition/:id') do
 end
 
 get('/words/:id') do
-  @words = Word.find(params.fetch('id').to_i())
+  @word_list = Word.find(params.fetch('id').to_i())
   erb(:word)
 end
 
 get('/words/:id/definition/new') do
-  @word = Word.find(params.fetch('id').to_i())
+  @word_list = Word.find(params.fetch('id').to_i())
   erb(:word_definition_form)
 end
 post('/definition') do
