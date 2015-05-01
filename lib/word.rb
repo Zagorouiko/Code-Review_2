@@ -30,4 +30,18 @@ class Word
   define_singleton_method(:clear) do
     @@word_list = []
   end
+
+  define_singleton_method(:find) do |id|
+    found_word = nil
+    @@word_list.each() do |word|
+      if word.id().eql?(id)
+        found_word = word
+      end
+    end
+    found_word
+  end
+
+  define_method(:add_definition) do |definition|
+    @word_definition.push(definition)
+  end
 end

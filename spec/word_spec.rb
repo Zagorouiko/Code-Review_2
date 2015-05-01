@@ -1,11 +1,12 @@
 require('rspec')
 require('word')
+require('definition')
 
   describe(Word) do
     before() do
       Word.clear()
     end
-    
+
     describe('#words') do
       it('returns the word') do
         test_words = Word.new('cat')
@@ -22,7 +23,7 @@ require('word')
 
     describe('#word_definition') do
       it('Initially return an empty array of a definition for the word') do
-        test_words = Word.new('domesticated feline mammal')
+        test_words = Word.new('a domesticated feline mammal')
         expect(test_words.word_definition()).to(eq([]))
       end
     end
@@ -46,6 +47,25 @@ require('word')
         Word.new('cat').save()
         Word.clear()
         expect(Word.all()).to(eq([]))
+      end
+    end
+
+    describe('.find') do
+      it('returns a word by its id number') do
+        test_words = Word.new('cat')
+        test_words.save()
+        test_words2 = Word.new('dog')
+        test_words2.save()
+        expect(Word.find(test_words.id())).to(eq(test_words))
+      end
+    end
+
+    describe('#add_definition') do
+      it('adds a definition to a word') do
+        test_words = Word.new('cat')
+        test_definition = Definition.new('a domesticated feline mammal')
+        test_words.add_definition(test_definition)
+        expect(test_words.word_definition()).to(eq([test_definition]))
       end
     end
   end
