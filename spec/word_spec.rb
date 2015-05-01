@@ -15,4 +15,11 @@ require('word')
         expect(test_words.id()).to(eq(1))
       end
     end
+
+    describe('#word_definition') do
+      it('Initially returns an empty of s definition for the word') do
+        test_words = Word.new('domesticated feline mammal')
+        expect(test_words.word_definition()).to(eq([]))
+      end
+    end
   end
