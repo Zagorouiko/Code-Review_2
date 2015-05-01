@@ -1,0 +1,8 @@
+require 'sinatra'
+require 'sinatra/reloader'
+require './lib/contact'
+require './lib/address'
+require './lib/email'
+require './lib/phone'
+also_reload './lib/*/**.rb'
+require 'pry'
