@@ -2,6 +2,10 @@ require('rspec')
 require('word')
 
   describe(Word) do
+    before() do
+      Word.clear()
+    end
+    
     describe('#words') do
       it('returns the word') do
         test_words = Word.new('cat')
@@ -33,6 +37,14 @@ require('word')
 
     describe('.all') do
       it('is empty at first') do
+        expect(Word.all()).to(eq([]))
+      end
+    end
+
+    describe('.clear') do
+      it('empties out all of the saved words') do
+        Word.new('cat').save()
+        Word.clear()
         expect(Word.all()).to(eq([]))
       end
     end
