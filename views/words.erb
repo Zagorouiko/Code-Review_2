@@ -1,0 +1,11 @@
+<h1>Youre Dictionary</h1>
+<h5>Click the word to see the definition or add a new one:</h5>
+<ul>
+  <% @word_list.each() do |word| %>
+    <li><a href="/words/<%= word.id() %>"><%= word.words() %></a></li>
+  <% end %>
+</ul>
+
+<form action='/'>
+  <button type="submit" class="btn btn-success">Home</button>
+</form>

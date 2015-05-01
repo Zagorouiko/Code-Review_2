@@ -1,12 +1,16 @@
 class Definition
 
-  define_method(:initialize) do |definition|
-    @definition = definition
+  @@definitions = []
+
+  define_method(:initialize) do |definitions|
+    @definitions = definitions
   end
 
   define_method(:definition) do
-    @definition
+    @definitions
   end
 
-
+  define_method(:save) do
+    @@definitions.push(self)
+  end
 end
